@@ -4,7 +4,7 @@ use base qw (CGI::Application);
 use FCGI;
 use CGI;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub run {
     my $self = shift;
@@ -56,7 +56,7 @@ Inherit this module instead of CGI::Application if you want to run your cgi prog
 
 =head1 NOTES
 
-Note that cgiapp_init() is called only once under lifecycle of FastCGI. So if you want to do something for every REQUESTS, you should write the logic in cgiapp_prerun().
+Note that cgiapp_init() will be called only once under lifecycle of FastCGI. setup() will also only be called once. (you should not be doing magical things in 'setup'.) So if you want to do something for every REQUESTS, you should write the logic in cgiapp_prerun().
 
 =head1 SEE ALSO
 
